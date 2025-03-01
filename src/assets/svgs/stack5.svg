@@ -1,0 +1,61 @@
+<svg width="541" height="320" viewBox="0 0 541 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M540 132.446L271.033 1L1 132.446V185.747L273.163 319L540 185.747V132.446Z" fill="#D9D9D9" fill-opacity="0.25"/>
+<path d="M243.337 253.503L270.5 265.699L526.685 141.932M12.7174 139.222L42.5435 154.58M46.8043 156.386L51.0652 158.645M54.2609 160L224.163 242.662M270.5 273.83V311.321M271.033 1L540 132.446V185.747L273.163 319L1 185.747V132.446L271.033 1Z" stroke="#050505" stroke-opacity="0.6"/>
+</svg>
+
+
+
+<svg
+width="541"
+height="500"
+fill="none"
+style={{ transition: "all 1s ease-in-out" }}
+>
+{/* Lines */}
+<path
+  className="line"
+  d="M243.337 253.503L270.5 265.699L526.685 141.932"
+  stroke="#050505"
+  strokeOpacity={isHovered ? "0" : "0.6"}
+  style={{ transition: "all 0.5s ease-in-out" }}
+/>
+<path
+  className="line"
+  d="M12.7174 139.222L42.5435 154.58"
+  stroke="#050505"
+  strokeOpacity={isHovered ? "0" : "0.6"}
+  style={{ transition: "all 0.5s ease-in-out" }}
+/>
+<path
+  className="line"
+  d="M46.8043 156.386L51.0652 158.645"
+  stroke="#050505"
+  strokeOpacity={isHovered ? "0" : "0.6"}
+  style={{ transition: "all 0.5s ease-in-out" }}
+/>
+<path
+  className="line"
+  d="M54.2609 160L224.163 242.662"
+  stroke="#050505"
+  strokeOpacity={isHovered ? "0" : "0.6"}
+  style={{ transition: "all 0.5s ease-in-out" }}
+/>
+<path
+  className="line"
+  d="M270.5 273.83V311.321"
+  stroke="#050505"
+  strokeOpacity={isHovered ? "0" : "0.6"}
+  style={{ transition: "all 0.5s ease-in-out" }}
+/>
+
+{/* Outline */}
+<path
+  className=""
+  d={isHoveredOutline ? stackOpen : stackClose}
+  stroke={isHoveredOutline ? "#5E548E" : "#050505"}
+  strokeOpacity="0.6"
+  fill={isHoveredOutline ? "#ADA7C9" : "#D9D9D9"}
+  fillOpacity="0.25"
+  style={{ transition: "all 2s ease-in-out" }}
+/>
+</svg>

@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+  
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body{
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100vw;
+}
+@font-face {
+    font-family: 'JuliusSansOne';
+    src: url('assets/fonts/JuliusSansOne-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  :root {
+    --font-julius: 'JuliusSansOne', sans-serif;
+  }
+
+  @keyframes waveMove {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .animate-wave {
+    animation: waveMove 6s linear infinite;
+    position: absolute;
+  }
+  
+  .delay-1 {
+    animation-delay: -3s;
+    opacity: 0.8;
+  }
+  

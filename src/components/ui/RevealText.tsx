@@ -1,0 +1,77 @@
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const RevealText = () => {
+  const divRef = useRef(null);
+
+  useEffect(() => {
+    const element = divRef.current;
+
+    gsap.fromTo(
+      element,
+      { clipPath: "polygon(0 0, 0 100%, 0 100%, 0 0)" }, // Starting state (zero)
+      {
+        clipPath: "polygon(0 0, 0 100%, 100% 100%, 100% 0)", // Full rectangle (ending state)
+        ease: "power1.inOut",
+        scrollTrigger: {
+          trigger: element,
+          start: "80% bottom", // Start when the element comes into the viewport
+          end: "bottom 80%", // End when the element is fully in the viewport
+          scrub: true, // Smooth scroll effect
+        },
+      }
+    );
+  }, []);
+
+  return (
+    <div className="h-[80vh] w-full md:h-screen"> 
+      <div
+        id="text-animated"
+        ref={divRef}
+        className="flex flex-col lg:flex-row lg:items-center justify-center absolute z-50"
+        style={{ overflow: "hidden", width: "100vw", height: "100vh" }} // Ensure content does not overflow during the animation
+      >
+        <div className="w-full px-4 lg:w-1/3 h-1/4 lg:h-1/3 flex items-center lg:items-end justify-center lg:justify-start mb-2 lg:mb-0 p-6">
+          <h1 className="font-julius text-xl md:text-4xl font-extrabold text-center lg:text-left">
+            Transforming conversations into tomorrow's competitive edge with AI,  
+            today.
+          </h1>
+        </div>
+
+        <div className="w-full px-4 lg:w-1/3 h-1/4 lg:h-1/3 flex lg:items-end justify-center lg:justify-end p-6">
+          <h1 className="font-julius text-sm md:text-xl font-extrabold text-left lg:text-right">
+            Veritech is a new-age software development company that serves
+            clients worldwide, offering support across different time zones
+            including the US, Asia Pacific, EMEA, and MENA.
+          </h1>
+        </div>
+      </div>
+
+      <div
+        id="text"
+        className="flex flex-col lg:flex-row items-center lg:items-center justify-center"
+        style={{ overflow: "hidden", width: "100vw", height: "100vh" }} // Ensure content does not overflow during the animation
+      >
+        <div className="w-full px-4 lg:w-1/3 h-1/4 lg:h-1/3 flex items-center lg:items-end justify-center lg:justify-start mb-2 lg:mb-0 p-6">
+          <h1 className="font-julius text-xl md:text-4xl font-extrabold text-center lg:text-left text-slate-300">
+            Transforming conversations into tomorrow's competitive edge with AI,
+            today.
+          </h1>
+        </div>
+
+        <div className="w-full px-4 lg:w-1/3 h-1/4 lg:h-1/3 flex lg:items-end justify-center lg:justify-end text-slate-300 p-6">
+          <h1 className="font-julius text-sm md:text-xl font-extrabold text-left lg:text-right">
+            Veritech is a new-age software development company that serves
+            clients worldwide, offering support across different time zones
+            including the US, Asia Pacific, EMEA, and MENA.
+          </h1>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default RevealText;
