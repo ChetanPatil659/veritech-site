@@ -79,7 +79,7 @@ export default function Background() {
   const wave3 = useRef(null);
 
   useEffect(() => {
-    const animateWaves = (target, duration) => {
+    const animateWaves = ({target, duration}: {target: any, duration: any}) => {
       gsap.to(target, {
         x: "-50%", // Moves left to create an infinite loop
         duration: duration,

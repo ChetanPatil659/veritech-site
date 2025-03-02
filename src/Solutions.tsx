@@ -1,7 +1,5 @@
-import React from "react";
 import { BentoGrid, BentoGridItem } from "./components/ui/bento-grid";
 import Navbar from "./components/Navbar";
-import Background from "./components/ExWavy";
 import Footer from "./components/Footer";
 
 
