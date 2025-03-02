@@ -1,6 +1,5 @@
-import React from "react";
 
-const Footer = () => {
+const Footer = (): JSX.Element => {
   return (
     <footer className="bg-[#000B5E] text-white py-24 px-6 md:px-20 lg:px-28 text-sm">
       <div className="grid-cols-1 md:grid-cols-3 gap-8 lg:px-36 hidden lg:grid">
@@ -149,3 +148,40 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
+// const Footer = (): JSX.Element => {
+//   return (
+//     <footer className="bg-[#000B5E] text-white py-24 px-6 md:px-20 lg:px-28 text-sm">
+//       <div className="grid-cols-1 md:grid-cols-3 gap-8 lg:px-36 hidden lg:grid">
+//         {/* Left Section */}
+//         <div className="flex flex-col gap-4">
+//           <h2 className="text-4xl font-light font-julius">LET'S GET TO WORK</h2>
+//           <button className="bg-white text-[#000B5E] px-6 py-2 rounded-lg shadow-md w-fit text-xl font-semibold">
+//             LET'S TALK
+//           </button>
+//           <div className="mt-12">
+//             <h3 className="text-lg text-gray-400">QUICK LINKS</h3>
+//             <ul className="mt-2 space-y-1 text-xl">
+//               <li>
+//                 <a href="#" className="hover:underline">
+//                   TERMS & CONDITIONS
+//                 </a>
+//               </li>
+//               <li>
+//                 <a href="#" className="hover:underline">
+//                   PRIVACY POLICY
+//                 </a>
+//               </li>
+//             </ul>
+//           </div>
+//         </div>
+
+//         {/* Rest of the component remains the same... */}
+//       </div>
+//       {/* ... */}
+//     </footer>
+//   );
+// };
+
+// export default Footer;

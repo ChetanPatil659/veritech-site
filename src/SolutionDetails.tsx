@@ -5,13 +5,9 @@ import Footer from "./components/Footer";
 import { HoverEffect } from "./components/ui/card-hover-effect";
 import { cn } from "./utils/cn";
 import {
-  IconAdjustmentsBolt,
   IconCloud,
   IconCurrencyDollar,
   IconEaseInOut,
-  IconHeart,
-  IconHelp,
-  IconRouteAltLeft,
   IconTerminal2,
 } from "@tabler/icons-react";
 import { useMemo } from "react";
@@ -150,7 +146,6 @@ function FeaturesSection() {
       ({
         title,
         description,
-        icon,
         index,
       }: {
         title: string;
