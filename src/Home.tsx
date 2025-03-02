@@ -71,6 +71,7 @@ function Home() {
       <Navbar />
       {/* <div className="h-12"/> */}
       <WavyBackgroundDemo setIsopen={() => setShowModal(true)} />
+      
       <RevealText />
       <div
         style={{ height: "100vh", width: "100vw" }}

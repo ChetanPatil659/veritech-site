@@ -1,5 +1,4 @@
 import {
-  IconBrandLinkedin,
   IconBrandMedium,
   IconCloud,
   IconCurrencyDollar,
@@ -8,7 +7,7 @@ import {
 } from "@tabler/icons-react";
 import React, { useMemo } from "react";
 import { cn } from "./utils/cn";
-import { Icon, Linkedin } from "lucide-react";
+import { Linkedin } from "lucide-react";
 import Navbar from "./components/Navbar";
 
 export default function Blogs() {
@@ -123,7 +122,6 @@ function FeaturesSection() {
       ({
         title,
         description,
-        icon,
         image,
         index,
       }: {

@@ -1,49 +1,171 @@
-import React from "react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "./ui/Accordion.tsx";
-import ExpandableCardDemo from "./expandable-card-demo-standard.tsx";
+// import React from "react";
+// import {
+//   Accordion,
+//   AccordionContent,
+//   AccordionItem,
+//   AccordionTrigger,
+// } from "./ui/Accordion.tsx";
+// import ExpandableCardDemo from "./expandable-card-demo-standard.tsx";
 
-export default function StackAnimation() {
-  const [stack, setStack] = React.useState([false, false, false, false, false]);
-  const [stackOutline, setStackOutline] = React.useState([
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
+// export default function StackAnimation() {
+//   const [stack, setStack] = React.useState([false, false, false, false, false]);
+//   const [stackOutline, setStackOutline] = React.useState([
+//     false,
+//     false,
+//     false,
+//     false,
+//     false,
+//   ]);
 
-  const stackOpen =
-    "M271.033 1L540 132.446V285.747L273.163 419L1 285.747V132.446L271.033 1Z";
-  const stackClose =
-    "M271.033 1L540 132.446V185.747L273.163 319L1 185.747V132.446L271.033 1Z";
+//   const stackOpen =
+//     "M271.033 1L540 132.446V285.747L273.163 419L1 285.747V132.446L271.033 1Z";
+//   const stackClose =
+//     "M271.033 1L540 132.446V185.747L273.163 319L1 185.747V132.446L271.033 1Z";
 
-  const handleAnimation = (idx: number) => {
+//   const handleAnimation = (idx: number) => {
+//     if (!stack[idx]) {
+//       setStack(() => {
+//         let temp = [false, false, false, false, false];
+//         temp[idx] = true;
+//         return temp;
+//       });
+//       setTimeout(() => {
+//         setStackOutline(() => {
+//           let temp = [false, false, false, false, false];
+//           temp[idx] = true;
+//           return temp;
+//         });
+//       }, 200);
+//     } else {
+//       setStackOutline(() => {
+//         return [false, false, false, false, false];
+//       });
+//       setTimeout(() => {
+//         setStack(() => {
+//           return [false, false, false, false, false];
+//         });
+//       }, 600);
+//     }
+//   };
+
+//   return (
+//     <div className="flex items-center w-full justify-center p-4 overflow-hidden">
+//       <div className="hidden lg:block scale-[0.7]" id="stack">
+//         {stack.map((_, index) => (
+//           <svg
+//             key={index}
+//             width="541"
+//             height={stack[index] ? "420" : "320"}
+//             fill="none"
+//             style={{
+//               transition: "all 0.65s ease-in-out",
+//               marginTop: index === 0 ? "0" : "-240px",
+//               zIndex: 5 - index,
+//               position: "relative",
+//             }}
+//           >
+//             {/* Lines */}
+//             <path
+//               className="line"
+//               d="M243.337 253.503L270.5 265.699L526.685 141.932"
+//               stroke="#050505"
+//               strokeOpacity={stack[index] ? "0" : "0.6"}
+//               style={{ transition: "all 0.5s ease-in-out" }}
+//             />
+//             <path
+//               className="line"
+//               d="M12.7174 139.222L42.5435 154.58"
+//               stroke="#050505"
+//               strokeOpacity={stack[index] ? "0" : "0.6"}
+//               style={{ transition: "all 0.5s ease-in-out" }}
+//             />
+//             <path
+//               className="line"
+//               d="M46.8043 156.386L51.0652 158.645"
+//               stroke="#050505"
+//               strokeOpacity={stack[index] ? "0" : "0.6"}
+//               style={{ transition: "all 0.5s ease-in-out" }}
+//             />
+//             <path
+//               className="line"
+//               d="M54.2609 160L224.163 242.662"
+//               stroke="#050505"
+//               strokeOpacity={stack[index] ? "0" : "0.6"}
+//               style={{ transition: "all 0.5s ease-in-out" }}
+//             />
+//             <path
+//               className="line"
+//               d="M270.5 273.83V311.321"
+//               stroke="#050505"
+//               strokeOpacity={stack[index] ? "0" : "0.6"}
+//               style={{ transition: "all 0.5s ease-in-out" }}
+//             />
+
+//             {/* Outline */}
+//             <path
+//               className=""
+//               d={stackOutline[index] ? stackOpen : stackClose}
+//               stroke={stackOutline[index] ? "#5E548E" : "#050505"}
+//               strokeOpacity="0.6"
+//               fill={stackOutline[index] ? "#ADA7C9" : "#D9D9D9"}
+//               fillOpacity={stackOutline[index] ? "1" : "0.25"}
+//               style={{ transition: "all 1.5s ease-in-out" }}
+//             />
+//           </svg>
+//         ))}
+//       </div>
+
+//       <div className="md:w-1/2 w-4/5 flex justify-center">
+//         <ExpandableCardDemo cards={cards}/>
+//       </div>
+//     </div>
+//   );
+// }
+
+import { useState } from "react";
+import ExpandableCardDemo from "./expandable-card-demo-standard";
+
+interface Card {
+  description: string;
+  title: string;
+  src: string;
+  ctaText: string;
+  ctaLink: string;
+  content: () => JSX.Element;
+}
+
+const STACK_SIZE = 5;
+const INITIAL_STATE = Array(STACK_SIZE).fill(false);
+
+const stackPaths = {
+  open: "M271.033 1L540 132.446V285.747L273.163 419L1 285.747V132.446L271.033 1Z",
+  close: "M271.033 1L540 132.446V185.747L273.163 319L1 185.747V132.446L271.033 1Z"
+};
+
+export default function StackAnimation(): JSX.Element {
+  const [stack, setStack] = useState<boolean[]>(INITIAL_STATE);
+  const [stackOutline, setStackOutline] = useState<boolean[]>(INITIAL_STATE);
+
+  const handleAnimation = (idx: number): void => {
     if (!stack[idx]) {
       setStack(() => {
-        let temp = [false, false, false, false, false];
+        const temp = Array(STACK_SIZE).fill(false);
         temp[idx] = true;
         return temp;
       });
+      
       setTimeout(() => {
         setStackOutline(() => {
-          let temp = [false, false, false, false, false];
+          const temp = Array(STACK_SIZE).fill(false);
           temp[idx] = true;
           return temp;
         });
       }, 200);
     } else {
-      setStackOutline(() => {
-        return [false, false, false, false, false];
-      });
+      setStackOutline(() => Array(STACK_SIZE).fill(false));
+      
       setTimeout(() => {
-        setStack(() => {
-          return [false, false, false, false, false];
-        });
+        setStack(() => Array(STACK_SIZE).fill(false));
       }, 600);
     }
   };
@@ -103,8 +225,7 @@ export default function StackAnimation() {
 
             {/* Outline */}
             <path
-              className=""
-              d={stackOutline[index] ? stackOpen : stackClose}
+              d={stackOutline[index] ? stackPaths.open : stackPaths.close}
               stroke={stackOutline[index] ? "#5E548E" : "#050505"}
               strokeOpacity="0.6"
               fill={stackOutline[index] ? "#ADA7C9" : "#D9D9D9"}
@@ -116,13 +237,13 @@ export default function StackAnimation() {
       </div>
 
       <div className="md:w-1/2 w-4/5 flex justify-center">
-        <ExpandableCardDemo cards={cards}/>
+        <ExpandableCardDemo cards={cards} handleAnimation={handleAnimation} />
       </div>
     </div>
   );
 }
 
-const cards = [
+const cards: Card[] = [
   {
     description: `Enhance customer experience in the telecom industry with our
               AI-Powered Unified Customer Interaction Platform. Semantic

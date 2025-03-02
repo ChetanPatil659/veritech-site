@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "../hooks/use-outside-click";
 import {
@@ -10,7 +10,7 @@ import {
 } from "./ui/Accordion";
 
 export default function ExpandableCardDemo({
-  cards,
+  cards, handleAnimation
 }: {
   cards: {
     title: string;
@@ -20,6 +20,7 @@ export default function ExpandableCardDemo({
     ctaLink: string;
     content: any;
   }[];
+  handleAnimation: (value: number) => void;
 }) {
   const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(
     null
@@ -152,7 +153,10 @@ export default function ExpandableCardDemo({
               </button> */}
               <motion.button
               // layoutId={`button-${card.title}-${id}`}
-              onClick={() => setActive(card)}
+              onClick={() => {
+                setActive(card);
+                handleAnimation(idx);
+              }}
               className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-green-500 hover:text-white text-black mt-4 md:mt-0"
             >
               Learn more

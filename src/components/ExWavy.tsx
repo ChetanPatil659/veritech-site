@@ -153,3 +153,141 @@ export default function Background() {
     </div>
   );
 }
+
+
+// import { useEffect, useState, useRef } from "react";
+// import { motion } from "framer-motion";
+// import { cn } from "../utils/cn";
+
+// interface SparkleProps {
+//   id: string;
+//   createdAt: number;
+//   color: string;
+//   size: number;
+//   style: React.CSSProperties;
+// }
+
+// interface SparklesPreviewProps {
+//   className?: string;
+//   children?: React.ReactNode;
+//   isEnabled?: boolean;
+// }
+
+// const DEFAULT_COLOR = "#FFF";
+// const MIN_SIZE = 10;
+// const MAX_SIZE = 20;
+// const MIN_OFFSET = -150;
+// const MAX_OFFSET = 150;
+
+// const random = (min: number, max: number): number => 
+//   Math.floor(Math.random() * (max - min)) + min;
+
+// const useRandomInterval = (
+//   callback: () => void,
+//   minDelay: number | null,
+//   maxDelay: number | null
+// ) => {
+//   const timeoutId = useRef<number | null>(null);
+//   const savedCallback = useRef(callback);
+
+//   useEffect(() => {
+//     savedCallback.current = callback;
+//   }, [callback]);
+
+//   useEffect(() => {
+//     if (minDelay === null || maxDelay === null) return;
+
+//     const handleTick = () => {
+//       const nextTickAt = random(minDelay, maxDelay);
+//       timeoutId.current = window.setTimeout(() => {
+//         savedCallback.current();
+//         handleTick();
+//       }, nextTickAt);
+//     };
+
+//     handleTick();
+
+//     return () => {
+//       if (timeoutId.current) {
+//         window.clearTimeout(timeoutId.current);
+//       }
+//     };
+//   }, [minDelay, maxDelay]);
+// };
+
+// const generateSparkle = (color: string = DEFAULT_COLOR): SparkleProps => {
+//   return {
+//     id: String(random(10000, 99999)),
+//     createdAt: Date.now(),
+//     color,
+//     size: random(MIN_SIZE, MAX_SIZE),
+//     style: {
+//       top: random(MIN_OFFSET, MAX_OFFSET),
+//       left: random(MIN_OFFSET, MAX_OFFSET),
+//       zIndex: 2,
+//     },
+//   };
+// };
+
+// const Sparkle: React.FC<SparkleProps> = ({ color, size, style }) => {
+//   const path =
+//     "M26.5 25.5C19.0043 33.3697 0 34 0 34C0 34 19.1013 35.3684 26.5 43.5C33.234 50.901 34 70 34 70C34 70 35.6597 50.7065 43.5 43.5C51.6455 35.9371 71 34 71 34C71 34 51.6947 33.5565 43.5 25.5C36.5605 18.6672 34 0 34 0C34 0 33.6591 17.9837 26.5 25.5Z";
+
+//   return (
+//     <motion.svg
+//       width={size}
+//       height={size}
+//       viewBox="0 0 68 68"
+//       fill="none"
+//       style={style}
+//       className="absolute"
+//       initial={{ scale: 0 }}
+//       animate={{ scale: 1 }}
+//       exit={{ scale: 0 }}
+//     >
+//       <path d={path} fill={color} />
+//     </motion.svg>
+//   );
+// };
+
+// const SparklesPreview: React.FC<SparklesPreviewProps> = ({ 
+//   className,
+//   children,
+//   isEnabled = true,
+// }) => {
+//   const [sparkles, setSparkles] = useState<SparkleProps[]>([]);
+
+//   useRandomInterval(
+//     () => {
+//       const sparkle = generateSparkle();
+//       const now = Date.now();
+//       const nextSparkles = sparkles.filter(sp => {
+//         const delta = now - sp.createdAt;
+//         return delta < 750;
+//       });
+
+//       nextSparkles.push(sparkle);
+//       setSparkles(nextSparkles);
+//     },
+//     isEnabled ? 50 : null,
+//     isEnabled ? 450 : null
+//   );
+
+//   return (
+//     <div className={cn("relative inline-block", className)}>
+//       {sparkles.map(sparkle => (
+//         <Sparkle
+//           key={sparkle.id}
+//           color={sparkle.color}
+//           size={sparkle.size}
+//           style={sparkle.style}
+//           id={sparkle.id}
+//           createdAt={sparkle.createdAt}
+//         />
+//       ))}
+//       <div className="relative z-1">{children}</div>
+//     </div>
+//   );
+// };
+
+// export default SparklesPreview;
