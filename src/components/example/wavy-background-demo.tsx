@@ -38,7 +38,7 @@ export default function WavyBackgroundDemo({ setIsopen }: WavyBackgroundDemoProp
     <div className="h-screen">
       <Background />
       <div className="flex flex-col align-center justify-center absolute z-100 top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-[60%]">
-        <p className="text-4xl md:text-5xl lg:text-7xl text-black inter-var text-center font-julius font-bold w-[100vw]">
+        <p className="text-4xl md:text-5xl lg:text-7xl text-black inter-var text-center font-julius w-[100vw]">
           Big solutions for <br />
           bold visions
         </p>

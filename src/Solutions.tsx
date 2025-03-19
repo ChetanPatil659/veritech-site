@@ -1,14 +1,12 @@
-import React from "react";
 import { BentoGrid, BentoGridItem } from "./components/ui/bento-grid";
 import Navbar from "./components/Navbar";
-import Background from "./components/ExWavy";
 import Footer from "./components/Footer";
 
 
 export default function Solutions() {
   return (
     <div className=" h-screen">
-      <Navbar />
+      <Navbar bgColor="#fff" />
       <div className="max-w-[1200px] mx-auto h-fit py-40 px-5 overflow-y-hidden">
         <p className="lg:text-5xl text-xl font-semibold mb-6 text-gray-400">
           {"Case Studies"}

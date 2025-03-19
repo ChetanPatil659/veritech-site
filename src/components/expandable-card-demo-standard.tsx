@@ -135,11 +135,11 @@ export default function ExpandableCardDemo({
       <Accordion
         type="single"
         collapsible
-        className="w-full max-w-md md:max-w-lg lg:max-w-xl"
+        className="flex-1"
       >
         {cards.map((card, idx) => (
           <AccordionItem value={`value-${idx + 1}`}>
-            <AccordionTrigger className="text-lg md:text-xl lg:text-2xl font-bold">
+            <AccordionTrigger className="text-lg md:text-xl lg:text-2xl font-bold" onClick={() => handleAnimation(idx)}>
               {card.title}
             </AccordionTrigger>
             <AccordionContent className="text-sm md:text-base lg:text-lg flex flex-col gap-3">
