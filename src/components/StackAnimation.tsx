@@ -148,7 +148,7 @@ export default function StackAnimation(): JSX.Element {
   const [stackOutline, setStackOutline] = useState<boolean[]>(INITIAL_STATE);
 
   const handleAnimation = (idx: number): void => {
-    console.log(idx)
+    console.log(idx);
     if (!stack[idx]) {
       setStack(() => {
         const temp = Array(STACK_SIZE).fill(false);
@@ -184,7 +184,7 @@ export default function StackAnimation(): JSX.Element {
             fill="none"
             style={{
               transition: "all 0.65s ease-in-out",
-              marginTop: index === 0 ? "0" : "-260px",
+              marginTop: index === 0 ? "0" : "-270px",
               zIndex: 5 - index,
               position: "relative",
               transform: "scale(0.7)",
@@ -193,39 +193,39 @@ export default function StackAnimation(): JSX.Element {
           >
             {/* Lines */}
             <path
-              className="line"
               d="M243.337 253.503L270.5 265.699L526.685 141.932"
               stroke="#050505"
               strokeOpacity={stack[index] ? "0" : "0.6"}
               style={{ transition: "all 0.5s ease-in-out" }}
+              className="stroke-accent2 line"
             />
             <path
-              className="line"
               d="M12.7174 139.222L42.5435 154.58"
               stroke="#050505"
               strokeOpacity={stack[index] ? "0" : "0.6"}
               style={{ transition: "all 0.5s ease-in-out" }}
+              className="stroke-accent2 line"
             />
             <path
-              className="line"
               d="M46.8043 156.386L51.0652 158.645"
               stroke="#050505"
               strokeOpacity={stack[index] ? "0" : "0.6"}
               style={{ transition: "all 0.5s ease-in-out" }}
+              className="stroke-accent2 line"
             />
             <path
-              className="line"
               d="M54.2609 160L224.163 242.662"
               stroke="#050505"
               strokeOpacity={stack[index] ? "0" : "0.6"}
               style={{ transition: "all 0.5s ease-in-out" }}
+              className="stroke-accent2 line"
             />
             <path
-              className="line"
               d="M270.5 273.83V311.321"
               stroke="#050505"
               strokeOpacity={stack[index] ? "0" : "0.6"}
               style={{ transition: "all 0.5s ease-in-out" }}
+              className="stroke-accent2 line"
             />
 
             {/* Outline */}
@@ -233,9 +233,13 @@ export default function StackAnimation(): JSX.Element {
               d={stackOutline[index] ? stackPaths.open : stackPaths.close}
               stroke={stackOutline[index] ? "#5E548E" : "#050505"}
               strokeOpacity="0.6"
-              fill={stackOutline[index] ? "#ADA7C9" : "#D9D9D9"}
+              // fill={stackOutline[index] ? "#7987F7" : "#D9D9D9"}
               fillOpacity={stackOutline[index] ? "1" : "0.25"}
-              style={{ transition: "all 1.5s ease-in-out" }}
+              style={{
+                transition: "all 1.5s ease-in-out",
+                opacity: stackOutline[index] ? 0.5 : 1,
+              }}
+              className="stroke-accent2 fill-accent filter-opacity-50"
             />
           </svg>
         ))}

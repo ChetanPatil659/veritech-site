@@ -26,7 +26,7 @@ function Home() {
   useEffect(() => {
     let ctx = gsap.context(() => {
       gsap.to("#main", {
-        backgroundColor: "#023e8a", // target background color
+        backgroundColor: "#181B31", // target background color
         color: "#fff",
         duration: 0.35, // duration of the color transition
         scrollTrigger: {
@@ -64,47 +64,8 @@ function Home() {
         className="flex flex-col items-center mt-16"
       >
         <div className="md:mt-40 mt:20 w-full" />
-        <SectionNumber number="2" text="Industry Excellence" type="dark" />
+        <SectionNumber number="2" text="Case Studies" type="dark" />
 
-        <div className="flex flex-row items-center gap-3 pb-2 w-4/5 md:w-[60%] md:mt-24 mt-10">
-          <p className="font-julius text-lg md:text-2xl            text-pretty opacity-75">
-            At Veritech, we are proud to have worked with some of the biggest
-            names in the industry. Our solutions have helped businesses to
-            optimize their workflows and boost their productivity.
-          </p>
-        </div>
-
-        <div className="pb-2 w-4/5 md:w-2/3 mt-16 md:mt-32 mx-auto">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
-            <p className="font-julius text-xl md:text-2xl text-center text-white text-pretty font-bold"></p>
-            <p className="font-julius text-xl md:text-2xl text-center text-white text-pretty font-bold">
-              BYJU'S
-            </p>
-            <p className="font-julius text-xl md:text-2xl text-center text-white text-pretty font-bold">
-              toppr
-            </p>
-            <p className="font-julius text-xl md:text-2xl text-center text-white text-pretty font-bold">
-              Cyber Square
-            </p>
-            <p className="font-julius text-xl md:text-2xl text-center text-white text-pretty font-bold">
-              cuemath
-            </p>
-            <p className="font-julius text-xl md:text-2xl text-center text-white text-pretty font-bold">
-              Sharda University
-            </p>
-            <p className="font-julius text-xl md:text-2xl text-center text-white text-pretty font-bold">
-              Skill Lync
-            </p>
-            <p className="font-julius text-xl md:text-2xl text-center text-white text-pretty font-bold">
-              Whitehat Jr
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-32 w-full" />
-        {/* <SectionNumber number="2" text="Industry Excellence" type="dark" /> */}
-        {/* <div className="mt-16 w-full" /> */}
-        <SectionNumber number="3" text="Case Studies" type="dark" />
         <div className="flex flex-col md:flex-row gap-6 md:gap-0 md:justify-between pb-2 w-screen">
           {/* StickyScroll - Only visible on larger screens */}
           <div className="hidden lg:flex w-full items-center justify-center">
@@ -113,47 +74,43 @@ function Home() {
                 {
                   title:
                     "1. Transforming Telecom Customer Support with Veritech.ai",
-                  description: `The telecom industry is characterized by high volumes of customer interactions, operational 
-              complexities, and a need for exceptional service delivery. Veritech.ai’s AI-Powered Unified 
-              Customer Interaction Platform addresses these challenges by enhancing customer experience, 
-              streamlining workflows, and empowering agents with advanced tools.`,
+                  description: `The telecom industry is characterized by high volumes of customer
+            interactions, operational complexities, and a need for exceptional
+            service delivery. Veritech.ai’s AI-Powered Unified Customer
+            Interaction Platform addresses these challenges by enhancing customer
+            experience, streamlining workflows, and empowering agents with
+            advanced tools.`,
                   content: (
                     <div className="h-full w-full bg-emerald-500 flex items-center justify-center text-white">
                       Collaborative Editing
                     </div>
                   ),
                   buttonValue:
-                    "1. Transforming Telecom Customer Support with Veritech.ai",
+                    "Transforming Telecom Customer Support with Veritech.ai",
                 },
                 {
                   title:
-                    "2. Transforming Telecom Customer Support with Veritech.ai",
-                  description: `The telecom industry is characterized by high volumes of customer interactions, operational 
-              complexities, and a need for exceptional service delivery. Veritech.ai’s AI-Powered Unified 
-              Customer Interaction Platform addresses these challenges by enhancing customer experience, 
-              streamlining workflows, and empowering agents with advanced tools.`,
+                    "2. Revolutionizing Insurance Operations with Veritech.ai",
+                  description: `The insurance sector demands efficiency and accuracy, especially in claim processing and customer interactions. Veritech.ai’s AI-powered solutions empower insurance companies to enhance customer service, streamline operations, and maintain high standards of data security.`,
                   content: (
                     <div className="h-full w-full bg-cyan-500 flex items-center justify-center text-white">
                       Collaborative Editing
                     </div>
                   ),
                   buttonValue:
-                    "2. Transforming Telecom Customer Support with Veritech.ai",
+                    "Revolutionizing Insurance Operations with Veritech.ai",
                 },
                 {
                   title:
-                    "3. Transforming Telecom Customer Support with Veritech.ai",
-                  description: `The telecom industry is characterized by high volumes of customer interactions, operational 
-              complexities, and a need for exceptional service delivery. Veritech.ai’s AI-Powered Unified 
-              Customer Interaction Platform addresses these challenges by enhancing customer experience, 
-              streamlining workflows, and empowering agents with advanced tools.`,
+                    "3. Enhancing Educational Support for Edtech Companies with Veritech.ai",
+                  description: `In the competitive edtech landscape, providing exceptional support to students and parents is crucial for ensuring learning success and satisfaction. Veritech.ai’s AI-Powered Unified Customer Interaction Platform empowers edtech companies to optimize their support services, enhance student engagement, and uphold data privacy standards.`,
                   content: (
                     <div className="h-full w-full bg-red-300 flex items-center justify-center text-white">
                       Collaborative Editing
                     </div>
                   ),
                   buttonValue:
-                    "3. Transforming Telecom Customer Support with Veritech.ai",
+                    "Enhancing Educational Support for Edtech Companies with Veritech.ai",
                 },
               ]}
             />
@@ -218,6 +175,45 @@ function Home() {
         </div>
 
         <div className="mt-32 w-full" />
+        {/* <SectionNumber number="2" text="Industry Excellence" type="dark" /> */}
+        {/* <div className="mt-16 w-full" /> */}
+        <SectionNumber number="3" text="Our Clients" type="dark" />
+        <div className="flex flex-row items-center gap-3 pb-2 w-4/5 md:w-[60%] md:mt-24 mt-10">
+          <p className="font-julius text-lg md:text-2xl            text-pretty opacity-75">
+            At Veritech, we are proud to have worked with some of the biggest
+            names in the industry. Our solutions have helped businesses to
+            optimize their workflows and boost their productivity.
+          </p>
+        </div>
+
+        <div className="pb-2 w-4/5 md:w-2/3 mt-16 md:mt-32 mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
+            <p className="font-julius text-xl md:text-2xl text-center text-white text-pretty font-bold"></p>
+            <p className="font-julius text-xl md:text-2xl text-center text-white text-pretty font-bold">
+              BYJU'S
+            </p>
+            <p className="font-julius text-xl md:text-2xl text-center text-white text-pretty font-bold">
+              toppr
+            </p>
+            <p className="font-julius text-xl md:text-2xl text-center text-white text-pretty font-bold">
+              Cyber Square
+            </p>
+            <p className="font-julius text-xl md:text-2xl text-center text-white text-pretty font-bold">
+              cuemath
+            </p>
+            <p className="font-julius text-xl md:text-2xl text-center text-white text-pretty font-bold">
+              Sharda University
+            </p>
+            <p className="font-julius text-xl md:text-2xl text-center text-white text-pretty font-bold">
+              Skill Lync
+            </p>
+            <p className="font-julius text-xl md:text-2xl text-center text-white text-pretty font-bold">
+              Whitehat Jr
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-32 w-full" />
         <SectionNumber number="4" text="Trusted By Clients" type="dark" />
 
         <TestimonialsSection />
@@ -229,61 +225,147 @@ function Home() {
         <Accordion type="single" collapsible className="w-full px-6 max-w-5xl">
           <AccordionItem value="item-1">
             <AccordionTrigger className="text-lg md:text-xl lg:text-2xl font-bold">
-              Ecommerce
+              What types of AI solutions does Veritech offer?
             </AccordionTrigger>
             <AccordionContent className="text-sm md:text-base lg:text-lg">
-              Enhance customer experience in the telecom industry with our
-              AI-Powered Unified Customer Interaction Platform. Semantic
-              Intelligence on Interactions ensures precise and effective call
-              handling
+              Veritech offers a wide range of AI solutions, including machine
+              learning, natural language processing (NLP), computer vision,
+              predictive analytics, and custom AI models tailored to meet the
+              specific needs of businesses across various industries. Whether
+              you're looking for automation, data analysis, or advanced
+              decision-making tools, we have the expertise to deliver innovative
+              AI-driven solutions.
             </AccordionContent>
           </AccordionItem>
 
           <AccordionItem value="item-2">
             <AccordionTrigger className="text-lg md:text-xl lg:text-2xl font-bold">
-              Financial Services
+              How can AI solutions benefit my business?
             </AccordionTrigger>
             <AccordionContent className="text-sm md:text-base lg:text-lg">
-              Enhance customer experience in the telecom industry with our
-              AI-Powered Unified Customer Interaction Platform. Semantic
-              Intelligence on Interactions ensures precise and effective call
-              handling
+              AI solutions can significantly enhance your business operations by
+              increasing efficiency, automating repetitive tasks, providing
+              insightful data analysis, and enabling smarter decision-making. AI
+              can also help improve customer experiences, reduce costs, and
+              drive innovation. Veritech works with you to implement AI
+              strategies that align with your business goals, ensuring maximum
+              return on investment.
             </AccordionContent>
           </AccordionItem>
 
           <AccordionItem value="item-3">
             <AccordionTrigger className="text-lg md:text-xl lg:text-2xl font-bold">
-              Insurance
+              Do you provide custom AI solutions?
             </AccordionTrigger>
             <AccordionContent className="text-sm md:text-base lg:text-lg">
-              Enhance customer experience in the telecom industry with our
-              AI-Powered Unified Customer Interaction Platform. Semantic
-              Intelligence on Interactions ensures precise and effective call
-              handling
+              Yes, Veritech specializes in delivering custom AI solutions. We
+              collaborate closely with our clients to understand their unique
+              business challenges and design AI models that are specifically
+              tailored to their needs. Whether it's optimizing internal
+              processes, developing customer-facing applications, or integrating
+              AI into existing systems, we create personalized solutions that
+              drive success.
             </AccordionContent>
           </AccordionItem>
 
           <AccordionItem value="item-4">
             <AccordionTrigger className="text-lg md:text-xl lg:text-2xl font-bold">
-              HealthTech Solutions
+              How do I know if AI is right for my business?
             </AccordionTrigger>
             <AccordionContent className="text-sm md:text-base lg:text-lg">
-              Enhance customer experience in the telecom industry with our
-              AI-Powered Unified Customer Interaction Platform. Semantic
-              Intelligence on Interactions ensures precise and effective call
-              handling
+              If you're looking to enhance efficiency, automate tasks, analyze
+              large volumes of data, or improve customer engagement, AI may be
+              the right solution for your business. Our team at Veritech can
+              help you assess your business needs and determine how AI can be
+              integrated to achieve your goals. We offer consultations and
+              proof-of-concept projects to help you explore AI's potential
+              before committing to a full implementation.
             </AccordionContent>
           </AccordionItem>
 
           <AccordionItem value="item-5">
             <AccordionTrigger className="text-lg md:text-xl lg:text-2xl font-bold">
-              EdTech Solutions
+              What industries does Veritech serve?
             </AccordionTrigger>
             <AccordionContent className="text-sm md:text-base lg:text-lg">
-              Enhance customer experience in the telecom industry with our
-              AI-Powered Unified Customer Interaction Platform. Semantic
-              Intelligence on Interactions ensures precise and effective call
-              handling
+              Veritech serves a wide range of industries, including healthcare,
+              finance, retail, manufacturing, logistics, and more. Our AI
+              solutions are versatile and can be applied across different
+              sectors to optimize processes, improve customer experiences, and
+              increase productivity. We tailor our offerings to meet the
+              specific challenges and opportunities in each industry.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-6">
+            <AccordionTrigger className="text-lg md:text-xl lg:text-2xl font-bold">
+              How long does it take to implement an AI solution?
+            </AccordionTrigger>
+            <AccordionContent className="text-sm md:text-base lg:text-lg">
+              The implementation timeline for an AI solution depends on the
+              complexity of the project and the specific needs of your business.
+              A simple AI tool might take a few weeks to implement, while more
+              complex, custom solutions may take several months. Our team works
+              closely with clients to define clear milestones and timelines,
+              ensuring the project stays on track and aligns with your business
+              objectives.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-7">
+            <AccordionTrigger className="text-lg md:text-xl lg:text-2xl font-bold">
+              Will AI solutions require ongoing maintenance?
+            </AccordionTrigger>
+            <AccordionContent className="text-sm md:text-base lg:text-lg">
+              Yes, AI models require periodic maintenance and updates to ensure
+              they continue to perform optimally. At Veritech, we provide
+              ongoing support and maintenance services to ensure your AI
+              solutions evolve with your business needs. We also offer training
+              and monitoring services to ensure the AI models adapt to changing
+              data and business conditions.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-8">
+            <AccordionTrigger className="text-lg md:text-xl lg:text-2xl font-bold">
+              What is the cost of implementing an AI solution?
+            </AccordionTrigger>
+            <AccordionContent className="text-sm md:text-base lg:text-lg">
+              The cost of implementing an AI solution varies depending on
+              factors such as the complexity of the project, the scope of work,
+              and the resources required. Veritech offers flexible pricing
+              models, including project-based pricing, subscription plans, and
+              ongoing support options. We work with you to determine the most
+              cost-effective solution that delivers the best value for your
+              business.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-9">
+            <AccordionTrigger className="text-lg md:text-xl lg:text-2xl font-bold">
+              How does Veritech ensure data security in AI solutions?
+            </AccordionTrigger>
+            <AccordionContent className="text-sm md:text-base lg:text-lg">
+              Data security is a top priority at Veritech. We adhere to the
+              highest standards of security and compliance, implementing robust
+              encryption, secure data storage, and strict access controls to
+              protect your sensitive data. We also ensure that our AI solutions
+              follow relevant regulations and industry best practices to
+              safeguard against potential risks.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-10">
+            <AccordionTrigger className="text-lg md:text-xl lg:text-2xl font-bold">
+              Can Veritech integrate AI into my existing systems?
+            </AccordionTrigger>
+            <AccordionContent className="text-sm md:text-base lg:text-lg">
+              Yes, Veritech specializes in integrating AI into your existing
+              infrastructure and systems. Our team ensures that the AI solutions
+              work seamlessly with your current technologies, whether it's CRM
+              systems, ERP software, or custom-built applications. We work
+              closely with your IT team to ensure smooth integration and
+              minimize disruption to your business operations.
             </AccordionContent>
           </AccordionItem>
         </Accordion>
@@ -298,18 +380,16 @@ function Home() {
           </div>
           <div
             onClick={() => setShowModal(true)}
-            className="flex flex-col items-end justify-center px-7 py-3 rounded-full mt-8 border border-[#5E5E5E] cursor-pointer hover:scale-95 transition-all"
+            className="flex flex-col items-end justify-center px-7 py-3 rounded-full mt-8 border border-secondary cursor-pointer transition-all hover:border-accent2 hover:text-accent2 hover:scale-105 duration-50"
           >
-            <p className="font-julius text-sm md:text-3xl text-[#504d4d]">
-              Contact Us
-            </p>
+            <p className="font-julius text-sm md:text-3xl">Contact Us</p>
           </div>
         </div>
       </div>
 
       {/* <Background/> */}
       <ContactUsModal isOpen={showModal} onClose={() => setShowModal(false)} />
-      <Footer />
+      <Footer setShowModal={setShowModal} />
     </div>
   );
 }

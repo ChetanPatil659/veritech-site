@@ -42,4 +42,7 @@ html, body{
     animation-delay: -3s;
     opacity: 0.8;
   }
-  
+  .no-scrollbar{
+    scrollbar-width: thin;
+    scrollbar-color: #cacaca transparent;
+  }

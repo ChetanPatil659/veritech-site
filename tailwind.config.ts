@@ -10,6 +10,12 @@ const config = {
   ],
   prefix: "",
   theme: {
+	// colors: {
+	// 	primary : '#F8F8F8',
+	// 	secondary: '#181B31',
+	// 	accent : '#FFC233',
+	// 	accent2: '#7987F7',
+	// },
   	container: {
   		center: true,
   		padding: '2rem',
@@ -18,6 +24,12 @@ const config = {
   		}
   	},
   	extend: {
+		colors: {
+			primary : '#F8F8F8',
+			secondary: '#181B31',
+			accent : '#FFC233',
+			accent2: '#7987F7',
+		},
 		keyframes: {
 			"accordion-down": {
 			  from: { height: "0" },

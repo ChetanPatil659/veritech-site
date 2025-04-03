@@ -9,16 +9,23 @@ import React, { useMemo } from "react";
 import { cn } from "./utils/cn";
 import { Linkedin } from "lucide-react";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import ContactUsModal from "./components/ui/ContactPopup";
 
 export default function Blogs() {
+  const [showModal, setShowModal] = React.useState(false);
   return (
-    <div className="max-w-[1200px] mx-auto h-fit px-5 py-40">
-      <Navbar bgColor="#fff" />
-      <p className="lg:text-5xl text-xl font-semibold max-w-[1080px] text-gray-400 font-julius">
-        Our Blogs
-      </p>
-      <FeaturesSection />
-    </div>
+    <>
+      <div className="max-w-[1200px] mx-auto h-fit px-5 py-40">
+        <Navbar bgColor="#fff" />
+        <p className="lg:text-5xl text-xl font-semibold max-w-[1080px] text-gray-400 font-julius">
+          Our Blogs
+        </p>
+        <FeaturesSection />
+      </div>
+      <ContactUsModal isOpen={showModal} onClose={() => setShowModal(false)} />
+      <Footer setShowModal={setShowModal} />
+    </>
   );
 }
 

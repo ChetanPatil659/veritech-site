@@ -10,7 +10,8 @@ import {
 } from "./ui/Accordion";
 
 export default function ExpandableCardDemo({
-  cards, handleAnimation
+  cards,
+  handleAnimation,
 }: {
   cards: {
     title: string;
@@ -53,9 +54,9 @@ export default function ExpandableCardDemo({
         {active && typeof active === "object" && (
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            animate={{ opacity: 0.5 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/20 h-full w-full z-10"
+            className="fixed inset-0 bg-black/20 h-full w-full z-999"
           />
         )}
       </AnimatePresence>
@@ -70,7 +71,7 @@ export default function ExpandableCardDemo({
                 opacity: 0,
               }}
               animate={{
-                opacity: 1,
+                opacity: 0.5,
               }}
               exit={{
                 opacity: 0,
@@ -78,7 +79,7 @@ export default function ExpandableCardDemo({
                   duration: 0.05,
                 },
               }}
-              className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
+              className="flex absolute top-2 z-[999] right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
               onClick={() => setActive(null)}
             >
               <CloseIcon />
@@ -86,9 +87,18 @@ export default function ExpandableCardDemo({
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-[500px]  h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+              className="max-w-[500px] h-fit mx-3 rounded-lg max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
             >
-              <div>
+              <div className="overflow-y-auto no-scrollbar">
+                <motion.div layoutId={`image-${active.title}-${id}`}>
+                  <img
+                    width={200}
+                    height={200}
+                    src={active.src}
+                    alt={active.title}
+                    className="w-full h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover border-2"
+                  />
+                </motion.div>
                 <div className="flex justify-between items-start p-4">
                   <div className="">
                     <motion.h3
@@ -120,7 +130,7 @@ export default function ExpandableCardDemo({
                     // initial={{ opacity: 0 }}
                     // animate={{ opacity: 1 }}
                     // exit={{ opacity: 0 }}
-                    className="text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
+                    className="text-neutral-600 text-xs md:text-sm lg:text-base h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
                   >
                     {typeof active.content === "function"
                       ? active.content()
@@ -132,14 +142,13 @@ export default function ExpandableCardDemo({
           </div>
         ) : null}
       </AnimatePresence>
-      <Accordion
-        type="single"
-        collapsible
-        className="flex-1"
-      >
+      <Accordion type="single" collapsible className="flex-1">
         {cards.map((card, idx) => (
           <AccordionItem value={`value-${idx + 1}`}>
-            <AccordionTrigger className="text-lg md:text-xl lg:text-2xl font-bold" onClick={() => handleAnimation(idx)}>
+            <AccordionTrigger
+              className="text-lg md:text-xl lg:text-2xl font-bold"
+              onClick={() => handleAnimation(idx)}
+            >
               {card.title}
             </AccordionTrigger>
             <AccordionContent className="text-sm md:text-base lg:text-lg flex flex-col gap-3">
@@ -152,15 +161,14 @@ export default function ExpandableCardDemo({
                 Learn More
               </button> */}
               <motion.button
-              // layoutId={`button-${card.title}-${id}`}
-              onClick={() => {
-                setActive(card);
-                handleAnimation(idx);
-              }}
-              className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-green-500 hover:text-white text-black mt-4 md:mt-0"
-            >
-              Learn more
-            </motion.button>
+                // layoutId={`button-${card.title}-${id}`}
+                onClick={() => {
+                  setActive(card);
+                }}
+                className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-accent hover:text-white text-black mt-4 md:mt-0 duration-150"
+              >
+                Learn more
+              </motion.button>
             </AccordionContent>
           </AccordionItem>
         ))}

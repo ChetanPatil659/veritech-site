@@ -104,7 +104,7 @@ export const StickyScroll = ({
                 }}
                 className="flex items-center mt-10"
               >
-                <Link to={`/solutions/${item.buttonValue}`} className="text-slate-300 font-bold text-lg p-2 border rounded-lg">see more</Link>
+                <Link to={`/solutions/${item.buttonValue}`} className="text-slate-300 font-bold text-lg p-2 border rounded-lg hover:text-primary hover:border-primary duration-300">see more</Link>
               </motion.div>
             </div>
           ))}

@@ -50,10 +50,10 @@ export default function WavyBackgroundDemo({ setIsopen }: WavyBackgroundDemoProp
         </p>
         
         <div 
-          className="flex flex-col items-end justify-center px-7 py-3 rounded-full mt-8 border border-[#5E5E5E] cursor-pointer hover:scale-95 transition-all"
+          className="flex flex-col items-end justify-center px-7 py-3 rounded-full mt-8 border border-secondary cursor-pointer transition-all hover:border-accent2 hover:text-accent2 hover:scale-105 duration-50"
           onClick={setIsopen}
         >
-          <p className="font-julius text-sm md:text-3xl text-[#504d4d]">Contact Us</p>
+          <p className="font-julius text-sm md:text-3xl">Contact Us</p>
         </div>
       </div>
     </div>

@@ -82,14 +82,14 @@ export const Testimonials = ({
                   <div
                     className={`${
                       active === index
-                        ? "bg-[#03045E] border-2 border-[rgba(255,255,255,0.5)]"
-                        : "bg-[#15167E] border-2 border-[rgba(255,255,255,0.5)]"
+                        ? "bg-accent border-2 border-secondary"
+                        : "bg-accent2 border-2 border-primary"
                     } flex flex-col items-end justify-between rounded-3xl p-12 h-full md:h-full w-full overflow-hidden`}
                   >
                     <div className="flex flex-row">
-                      <Quote size={50} color="#d1d5db" />
+                      <Quote size={50} color="#F8F8F8" />
                       <motion.p
-                        className="text-lg text-gray-300 mt-6 md:mt-8"
+                        className="text-lg text-secondary mt-6 md:mt-8"
                         style={{
                           display: "-webkit-box",
                           overflow: "hidden",
@@ -129,7 +129,7 @@ export const Testimonials = ({
                       <h3 className="text-xl font-medium text-white text-left">
                         {testimonials[active].name}
                       </h3>
-                      <p className="text-sm text-gray-400 text-left">
+                      <p className="text-sm text-secondary text-left">
                         {testimonials[active].designation}
                       </p>
                     </div>
@@ -140,7 +140,7 @@ export const Testimonials = ({
           </div>
         </div>
       </div>
-      <div className="flex gap-4 z-40 mt-20">
+      <div className="flex justify-end gap-4 z-40 mt-20 px-10">
         <button
           onClick={handlePrev}
           className="h-8 aspect-square rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"

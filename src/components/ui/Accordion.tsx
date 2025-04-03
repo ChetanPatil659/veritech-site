@@ -54,7 +54,6 @@
 
 // export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };
 
-
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { Plus } from "lucide-react";
@@ -100,13 +99,13 @@ const AccordionTrigger = React.forwardRef<
       <AccordionPrimitive.Trigger
         ref={ref}
         className={cn(
-          "flex flex-1 items-center justify-between py-4 font-julius text-4xl font-medium transition-all hover:text-[#9747FF] text-left [&[data-state=open]>svg]:rotate-180",
+          "flex flex-1 items-center justify-between py-4 font-julius text-4xl font-medium transition-all hover:text-accent2 text-left [&[data-state=open]>svg]:rotate-180 duration-50",
           className
         )}
         {...restProps}
       >
         {children}
-        <Plus className="md:text-lg lg:h-9 lg:w-9 md:h-5 md:w-5 shrink-0 text-muted-foreground transition-transform hover:text-[#9747FF] duration-200 data-[state=closed]:text-[#9747FF]" />
+        <Plus className="md:text-lg lg:h-9 lg:w-9 md:h-5 md:w-5 shrink-0 text-muted-foreground transition-transform duration-200 data-[state=closed]:text-[#9747FF]" />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   );
