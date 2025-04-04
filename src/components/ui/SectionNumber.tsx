@@ -1,66 +1,57 @@
-// export default function SectionNumber({
-//   number,
-//   text,
-//   type,
-// }: {
-//   number: string;
-//   text: string;
-//   type: string;
-// }) {
-//   return (
-//     <>
-//       {type === "dark" ?
-//       <div className="flex flex-row items-center gap-3 pb-2 border-b-4 border-[#FFFFFF] border-opacity-45 md:w-2/3 w-4/5">
-//         <div className="flex flex-col items-center justify-center border-[1px] border-[#FFFFFF] border-opacity-45 bg-[#292A9E] aspect-square p-3 text-white rounded-full h-[50px]">
-//           {number}
-//         </div>
-//         <p className="font-julius text-2xl text-white ">{text}</p>
-//       </div>
-//         :
-//       <div className="flex flex-row items-center gap-3 pb-2 border-b-4 border-[#ADA7C9] md:w-2/3 w-4/5">
-//         <div className="flex flex-col items-center justify-center bg-[#ADA7C9] aspect-square p-3 text-white rounded-full h-8 md:h-[40px]">
-//         {number}
-//         </div>
-//         <p className="font-julius text-2xl md:text-3xl text-[#ADA7C9]">{text}</p>
-//       </div>}
-//     </>
-//   );
-// }
-
 interface SectionNumberProps {
   number: string;
   text: string;
   type: "dark" | "light";
+  cta?: boolean | string;
+  ctaAction?: () => void;
 }
-
 const SectionNumber: React.FC<SectionNumberProps> = ({
   number,
   text,
   type,
+  cta = false,
+  ctaAction,
 }) => {
   const DarkSection = () => (
     <div className="w-full max-w-5xl px-5">
-      <div className="flex flex-row items-center gap-3 pb-2 border-b-4 border-gray-200 w-full">
-        <div className="flex flex-col items-center justify-center aspect-square p-3 rounded-full h-8 md:h-[40px] border border-primary">
-          {number}
+      <div className="flex flex-row justify-between items-center gap-3 pb-2 border-b-4 border-gray-200 w-full">
+        <div className="flex flex-row items-center gap-3">
+          <div className="flex flex-col items-center justify-center aspect-square p-3 rounded-full h-8 md:h-[40px] border border-primary">
+            {number}
+          </div>
+          <p className="font-julius text-2xl">{text}</p>
         </div>
-        <p className="font-julius text-2xl">{text}</p>
+        {cta && (
+          <button
+            onClick={ctaAction}
+            className="bg-primary text-secondary px-6 py-2 rounded-lg shadow-md w-fit text-xl font-semibold"
+          >
+            {cta}
+          </button>
+        )}
       </div>
     </div>
   );
-
   const LightSection = () => (
     <div className="w-full max-w-5xl px-5">
-      <div className="flex flex-row items-center gap-3 pb-2 border-b-4 border-gray-200 w-full">
-        <div className="flex flex-col items-center justify-center aspect-square p-3 rounded-full h-8 md:h-[40px] border border-secondary">
-          {number}
+      <div className="flex flex-row items-center justify-between gap-3 pb-2 border-b-4 border-gray-200 w-full">
+        <div className="flex flex-row items-center gap-3">
+          <div className="flex flex-col items-center justify-center aspect-square p-3 rounded-full h-8 md:h-[40px] border border-secondary">
+            {number}
+          </div>
+          <h3 className="font-julius text-2xl md:text-3xl">{text}</h3>
         </div>
-        <h3 className="font-julius text-2xl md:text-3xl">{text}</h3>
+        {cta && (
+          <button
+            onClick={ctaAction}
+            className="bg-primary text-secondary px-6 py-2 rounded-lg shadow-md w-fit text-xl font-semibold"
+          >
+            {cta}
+          </button>
+        )}
       </div>
     </div>
   );
-
   return <>{type === "dark" ? <DarkSection /> : <LightSection />}</>;
 };
-
 export default SectionNumber;

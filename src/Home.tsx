@@ -54,7 +54,13 @@ function Home() {
         style={{ height: "100vh", width: "100vw" }}
         className="flex flex-col items-center justify-center"
       >
-        <SectionNumber number="1" text="Industry Excellence" type="light" />
+        <SectionNumber
+          number="1"
+          text="Industry Excellence"
+          type="light"
+          cta="Contact Us"
+          ctaAction={() => setShowModal(true)}
+        />
         <StackAnimation />
       </div>
       {/* <div className="h-[30vh]" /> */}
@@ -64,7 +70,13 @@ function Home() {
         className="flex flex-col items-center mt-16"
       >
         <div className="md:mt-40 mt:20 w-full" />
-        <SectionNumber number="2" text="Case Studies" type="dark" />
+        <SectionNumber
+          number="2"
+          text="Case Studies"
+          type="dark"
+          cta="See All"
+          ctaAction={() => setShowModal(true)}
+        />
 
         <div className="flex flex-col md:flex-row gap-6 md:gap-0 md:justify-between pb-2 w-screen">
           {/* StickyScroll - Only visible on larger screens */}
