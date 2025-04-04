@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 
-const Footer = ({ setShowModal }): JSX.Element => {
+const Footer = ({
+  setShowModal,
+}: {
+  setShowModal: (value: boolean) => void;
+}): JSX.Element => {
   return (
     <footer className="bg-secondary text-primary py-24 px-6 md:px-20 lg:px-14 text-sm">
       <div className="grid-cols-1 md:grid-cols-3 gap-8 hidden lg:grid">

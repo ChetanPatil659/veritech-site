@@ -1,3 +1,4 @@
+//@ts-nocheck
 import Navbar from "./components/Navbar";
 import { useParams } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -16,7 +17,7 @@ import ContactUsModal from "./components/ui/ContactPopup";
 export default function SolutionDetails() {
   const { solution } = useParams();
   const [showModal, setShowModal] = useState(false);
-  const [solutionDetail, setSolutionDetail] = useState(
+  const [solutionDetail] = useState(
     solutions.find((e) => e.title === solution)
   );
   return (
@@ -81,59 +82,7 @@ export default function SolutionDetails() {
   );
 }
 
-const projects = [
-  {
-    title: "Semantic Intelligence on Interactions ",
-    description: `Veritech.ai’s platform analyzed customer calls to identify common issues and trends. 
-Real-time insights empowered agents to resolve queries faster and with greater 
-accuracy, leading to improved first-call resolution rates.`,
-  },
-  {
-    title: "Agent Empowerment Suite ",
-    description: `Customized training modules and upskilling tools helped agents handle complex queries 
-effectively. The suite ensured consistent service quality and boosted agent confidence 
-and productivity. `,
-  },
-  {
-    title: `Comprehensive Reporting and Analytics 
-The telecom company leveraged detailed das`,
-    description: `The telecom company leveraged detailed dashboards and analytics to track 
-performance metrics such as call resolution times and customer satisfaction scores. 
-These insights enabled the team to optimize workflows and make informed decisions. `,
-  },
-  {
-    title: "Seamless Integration and Robust Data Privacy ",
-    description: `The AI platform was integrated with the client’s existing CRM systems without disrupting 
-operations. Advanced data privacy measures ensured the security of sensitive customer 
-information, building trust and compliance with industry regulations. `,
-  },
-];
-
-const features = [
-  {
-    title: "35%",
-    description: " Improvement in first-call resolution rates. ",
-    icon: <IconTerminal2 />,
-  },
-  {
-    title: "25%",
-    description: "Increase in customer satisfaction scores. ",
-    icon: <IconEaseInOut />,
-  },
-  {
-    title: "Significant reduction",
-    description:
-      "Significant reduction in agent training time and operational costs. ",
-    icon: <IconCurrencyDollar />,
-  },
-  {
-    title: `Enhanced ability`,
-    description: `Enhanced ability to predict and address customer needs proactively. 
-`,
-    icon: <IconCloud />,
-  },
-];
-function FeaturesSection({ results }) {
+function FeaturesSection({ results }: any) {
   const Feature = useMemo(
     () =>
       ({
