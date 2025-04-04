@@ -8,7 +8,7 @@
 
 //   useEffect(() => {
 //     let ctx = gsap.context(() => {
-      
+
 //       gsap.to(wave1.current, {
 //         attr: { d: "M0,160 Q360,200 720,160 T1440,160" },
 //         repeat: -1,
@@ -16,7 +16,7 @@
 //         duration: 4.5,
 //         ease: "sine.out",
 //       });
-  
+
 //       gsap.to(wave2.current, {
 //         attr: { d: "M0,180 Q360,120 720,180 T1440,180" },
 //         repeat: -1,
@@ -24,7 +24,7 @@
 //         duration: 5,
 //         ease: "sine.in",
 //       });
-  
+
 //       gsap.to(wave3.current, {
 //         attr: { d: "M0,130 Q360,80 720,140 T1440,290" },
 //         repeat: -1,
@@ -68,7 +68,6 @@
 //     </div>
 //   );
 // }
-
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
@@ -154,7 +153,6 @@ export default function Background() {
   );
 }
 
-
 // import { useEffect, useState, useRef } from "react";
 // import { motion } from "framer-motion";
 // import { cn } from "../utils/cn";
@@ -179,7 +177,7 @@ export default function Background() {
 // const MIN_OFFSET = -150;
 // const MAX_OFFSET = 150;
 
-// const random = (min: number, max: number): number => 
+// const random = (min: number, max: number): number =>
 //   Math.floor(Math.random() * (max - min)) + min;
 
 // const useRandomInterval = (
@@ -250,7 +248,7 @@ export default function Background() {
 //   );
 // };
 
-// const SparklesPreview: React.FC<SparklesPreviewProps> = ({ 
+// const SparklesPreview: React.FC<SparklesPreviewProps> = ({
 //   className,
 //   children,
 //   isEnabled = true,

@@ -139,7 +139,8 @@ const INITIAL_STATE = Array(STACK_SIZE).fill(false);
 
 const stackPaths = {
   open: "M271.033 1L540 132.446V285.747L273.163 419L1 285.747V132.446L271.033 1Z",
-  close: "M271.033 1L540 132.446V185.747L273.163 319L1 185.747V132.446L271.033 1Z"
+  close:
+    "M271.033 1L540 132.446V185.747L273.163 319L1 185.747V132.446L271.033 1Z",
 };
 
 export default function StackAnimation(): JSX.Element {
@@ -147,13 +148,14 @@ export default function StackAnimation(): JSX.Element {
   const [stackOutline, setStackOutline] = useState<boolean[]>(INITIAL_STATE);
 
   const handleAnimation = (idx: number): void => {
+    console.log(idx);
     if (!stack[idx]) {
       setStack(() => {
         const temp = Array(STACK_SIZE).fill(false);
         temp[idx] = true;
         return temp;
       });
-      
+
       setTimeout(() => {
         setStackOutline(() => {
           const temp = Array(STACK_SIZE).fill(false);
@@ -163,7 +165,7 @@ export default function StackAnimation(): JSX.Element {
       }, 200);
     } else {
       setStackOutline(() => Array(STACK_SIZE).fill(false));
-      
+
       setTimeout(() => {
         setStack(() => Array(STACK_SIZE).fill(false));
       }, 600);
@@ -171,56 +173,59 @@ export default function StackAnimation(): JSX.Element {
   };
 
   return (
-    <div className="flex items-center w-full justify-center p-4 overflow-hidden">
-      <div className="hidden lg:block scale-[0.7]" id="stack">
+    <div className="flex items-center w-full max-w-5xl p-5 overflow-hidden">
+      <div className="hidden lg:block w-full" id="stack">
         {stack.map((_, index) => (
           <svg
             key={index}
             width="541"
+            // scale={0.7}
             height={stack[index] ? "420" : "320"}
             fill="none"
             style={{
               transition: "all 0.65s ease-in-out",
-              marginTop: index === 0 ? "0" : "-240px",
+              marginTop: index === 0 ? "0" : "-270px",
               zIndex: 5 - index,
               position: "relative",
+              transform: "scale(0.7)",
+              transformOrigin: "center left",
             }}
           >
             {/* Lines */}
             <path
-              className="line"
               d="M243.337 253.503L270.5 265.699L526.685 141.932"
               stroke="#050505"
               strokeOpacity={stack[index] ? "0" : "0.6"}
               style={{ transition: "all 0.5s ease-in-out" }}
+              className="stroke-accent2 line"
             />
             <path
-              className="line"
               d="M12.7174 139.222L42.5435 154.58"
               stroke="#050505"
               strokeOpacity={stack[index] ? "0" : "0.6"}
               style={{ transition: "all 0.5s ease-in-out" }}
+              className="stroke-accent2 line"
             />
             <path
-              className="line"
               d="M46.8043 156.386L51.0652 158.645"
               stroke="#050505"
               strokeOpacity={stack[index] ? "0" : "0.6"}
               style={{ transition: "all 0.5s ease-in-out" }}
+              className="stroke-accent2 line"
             />
             <path
-              className="line"
               d="M54.2609 160L224.163 242.662"
               stroke="#050505"
               strokeOpacity={stack[index] ? "0" : "0.6"}
               style={{ transition: "all 0.5s ease-in-out" }}
+              className="stroke-accent2 line"
             />
             <path
-              className="line"
               d="M270.5 273.83V311.321"
               stroke="#050505"
               strokeOpacity={stack[index] ? "0" : "0.6"}
               style={{ transition: "all 0.5s ease-in-out" }}
+              className="stroke-accent2 line"
             />
 
             {/* Outline */}
@@ -228,15 +233,19 @@ export default function StackAnimation(): JSX.Element {
               d={stackOutline[index] ? stackPaths.open : stackPaths.close}
               stroke={stackOutline[index] ? "#5E548E" : "#050505"}
               strokeOpacity="0.6"
-              fill={stackOutline[index] ? "#ADA7C9" : "#D9D9D9"}
+              // fill={stackOutline[index] ? "#7987F7" : "#D9D9D9"}
               fillOpacity={stackOutline[index] ? "1" : "0.25"}
-              style={{ transition: "all 1.5s ease-in-out" }}
+              style={{
+                transition: "all 1.5s ease-in-out",
+                opacity: stackOutline[index] ? 0.5 : 1,
+              }}
+              className="stroke-accent2 fill-accent filter-opacity-50"
             />
           </svg>
         ))}
       </div>
 
-      <div className="md:w-1/2 w-4/5 flex justify-center">
+      <div className="w-full flex justify-center">
         <ExpandableCardDemo cards={cards} handleAnimation={handleAnimation} />
       </div>
     </div>
@@ -333,22 +342,47 @@ const cards: Card[] = [
     content: () => {
       return (
         <p>
-          Use Case: Fraud Detection and Prevention
-Semantic Intelligence on Interactions: Monitors customer interactions for signs of fraudulent activity and alerts agents.
-Agent Empowerment Suite: Provides agents with tools and knowledge to address security concerns and educate customers on fraud prevention.
-Comprehensive Reporting and Analytics: Analyzes interaction data to identify patterns and trends in fraudulent behavior.
-Easy Integration and Data Privacy: Ensures seamless integration with financial systems and adheres to strict data security standards.
-Industry Insights
-Fraud Detection and Customer Support: AI-powered platforms are crucial for fraud detection and personalized customer support. Comprehensive reporting and analytics can identify unusual patterns and flag potential fraud, while semantic intelligence can improve customer interactions, leading to higher satisfaction and trust.
-Market Growth: AI is pivotal in transforming financial services by enhancing customer interactions and ensuring data security. According to PwC, AI can enhance fraud detection, personalize customer experiences, and streamline regulatory compliance. Semantic intelligence analyzes vast amounts of interaction data to detect anomalies and prevent fraud, while AI-driven analytics provide deep insights into customer behavior, enabling personalized financial advice and services【PwC】.
-Use Case: Fraud Detection and Prevention
-Semantic Intelligence on Interactions: Monitors customer interactions for signs of fraudulent activity and alerts agents.
-Agent Empowerment Suite: Provides agents with tools and knowledge to address security concerns and educate customers on fraud prevention.
-Comprehensive Reporting and Analytics: Analyzes interaction data to identify patterns and trends in fraudulent behavior.
-Easy Integration and Data Privacy: Ensures seamless integration with financial systems and adheres to strict data security standards.
-Industry Insights
-Fraud Detection and Customer Support: AI-powered platforms are crucial for fraud detection and personalized customer support. Comprehensive reporting and analytics can identify unusual patterns and flag potential fraud, while semantic intelligence can improve customer interactions, leading to higher satisfaction and trust.
-Market Growth: AI is pivotal in transforming financial services by enhancing customer interactions and ensuring data security. According to PwC, AI can enhance fraud detection, personalize customer experiences, and streamline regulatory compliance. Semantic intelligence analyzes vast amounts of interaction data to detect anomalies and prevent fraud, while AI-driven analytics provide deep insights into customer behavior, enabling personalized financial advice and services【PwC】.
+          Use Case: Fraud Detection and Prevention Semantic Intelligence on
+          Interactions: Monitors customer interactions for signs of fraudulent
+          activity and alerts agents. Agent Empowerment Suite: Provides agents
+          with tools and knowledge to address security concerns and educate
+          customers on fraud prevention. Comprehensive Reporting and Analytics:
+          Analyzes interaction data to identify patterns and trends in
+          fraudulent behavior. Easy Integration and Data Privacy: Ensures
+          seamless integration with financial systems and adheres to strict data
+          security standards. Industry Insights Fraud Detection and Customer
+          Support: AI-powered platforms are crucial for fraud detection and
+          personalized customer support. Comprehensive reporting and analytics
+          can identify unusual patterns and flag potential fraud, while semantic
+          intelligence can improve customer interactions, leading to higher
+          satisfaction and trust. Market Growth: AI is pivotal in transforming
+          financial services by enhancing customer interactions and ensuring
+          data security. According to PwC, AI can enhance fraud detection,
+          personalize customer experiences, and streamline regulatory
+          compliance. Semantic intelligence analyzes vast amounts of interaction
+          data to detect anomalies and prevent fraud, while AI-driven analytics
+          provide deep insights into customer behavior, enabling personalized
+          financial advice and services【PwC】. Use Case: Fraud Detection and
+          Prevention Semantic Intelligence on Interactions: Monitors customer
+          interactions for signs of fraudulent activity and alerts agents. Agent
+          Empowerment Suite: Provides agents with tools and knowledge to address
+          security concerns and educate customers on fraud prevention.
+          Comprehensive Reporting and Analytics: Analyzes interaction data to
+          identify patterns and trends in fraudulent behavior. Easy Integration
+          and Data Privacy: Ensures seamless integration with financial systems
+          and adheres to strict data security standards. Industry Insights Fraud
+          Detection and Customer Support: AI-powered platforms are crucial for
+          fraud detection and personalized customer support. Comprehensive
+          reporting and analytics can identify unusual patterns and flag
+          potential fraud, while semantic intelligence can improve customer
+          interactions, leading to higher satisfaction and trust. Market Growth:
+          AI is pivotal in transforming financial services by enhancing customer
+          interactions and ensuring data security. According to PwC, AI can
+          enhance fraud detection, personalize customer experiences, and
+          streamline regulatory compliance. Semantic intelligence analyzes vast
+          amounts of interaction data to detect anomalies and prevent fraud,
+          while AI-driven analytics provide deep insights into customer
+          behavior, enabling personalized financial advice and services【PwC】.
         </p>
       );
     },

@@ -10,7 +10,7 @@
 //   )
 // }
 
-import type { FC } from 'react';
+import type { FC } from "react";
 import caseStudy from "../../assets/images/caseStudy.png";
 
 interface CaseStudyCardProps {
@@ -20,14 +20,14 @@ interface CaseStudyCardProps {
 
 const CaseStudyCard: FC<CaseStudyCardProps> = ({
   text = "Financial services",
-  subText = "Boost Customer Confidence with Intelligent Interactions"
+  subText = "Boost Customer Confidence with Intelligent Interactions",
 }) => {
   return (
     <div className="w-full">
-      <img 
-        className="object-fill rounded-3xl" 
-        src={caseStudy} 
-        alt="Case Study" 
+      <img
+        className="object-fill rounded-3xl"
+        src={caseStudy}
+        alt="Case Study"
       />
       <p className="font-julius text-xl md:text-2xl text-white font-semibold mt-4">
         {text}

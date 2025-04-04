@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { motion } from "framer-motion";
 import { cn } from "../../utils/cn";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const StickyScroll = ({
   content,
@@ -66,10 +66,10 @@ export const StickyScroll = ({
       animate={{
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}
-      className="h-[30rem] w-full overflow-y-auto flex justify-center relative space-x-10 rounded-md p-10  [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
+      className="h-[30rem] max-w-5xl w-full overflow-y-auto flex justify-center relative space-x-10 rounded-md  [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
       ref={ref}
     >
-      <div className="div relative flex items-start px-4 w-2/5">
+      <div className="div relative flex items-start px-4 w-full">
         <div className="max-w-2xl">
           {content.map((item, index) => (
             <div key={item.title + index} className="my-20">
@@ -104,7 +104,12 @@ export const StickyScroll = ({
                 }}
                 className="flex items-center mt-10"
               >
-                <Link to={`/solutions/${item.buttonValue}`} className="text-slate-300 font-bold text-lg p-2 border rounded-lg">see more</Link>
+                <Link
+                  to={`/solutions/${item.buttonValue}`}
+                  className="text-slate-300 font-bold text-lg p-2 border rounded-lg hover:text-primary hover:border-primary duration-300"
+                >
+                  see more
+                </Link>
               </motion.div>
             </div>
           ))}
@@ -114,7 +119,7 @@ export const StickyScroll = ({
       <div
         style={{ background: backgroundGradient }}
         className={cn(
-          "hidden lg:block h-60 rounded-md bg-white sticky top-10 overflow-hidden w-1/5",
+          "hidden lg:block h-60 rounded-md bg-white sticky top-10 overflow-hidden w-full",
           contentClassName
         )}
       >

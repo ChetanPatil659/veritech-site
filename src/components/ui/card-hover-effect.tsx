@@ -8,7 +8,7 @@ export const HoverEffect = ({
 }: {
   items: {
     title: string;
-    description: string;
+    description: string | [""];
   }[];
   className?: string;
 }) => {
@@ -47,7 +47,17 @@ export const HoverEffect = ({
           </AnimatePresence>
           <Card>
             <CardTitle>{item.title}</CardTitle>
-            <CardDescription>{item.description}</CardDescription>
+            <CardDescription>
+              {typeof item.description === "string" ? (
+                item.description
+              ) : (
+                <ul className="list-disc">
+                  {item.description.map((des) => (
+                    <li>{des}</li>
+                  ))}
+                </ul>
+              )}
+            </CardDescription>
           </Card>
         </div>
       ))}

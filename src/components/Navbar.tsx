@@ -110,7 +110,6 @@
 // //   );
 // // }
 
-
 import { useEffect, useState } from "react";
 import icon from "../assets/images/navIcon.png";
 import logo from "../assets/images/logo.png";
@@ -118,9 +117,13 @@ import { NavLink } from "react-router-dom";
 
 interface NavbarProps {
   bgColor?: string;
+  contactModal?: () => void;
 }
 
-export default function Navbar({ bgColor = "transparent" }: NavbarProps) {
+export default function Navbar({
+  bgColor = "transparent",
+  contactModal,
+}: NavbarProps) {
   const [expanded, setExpanded] = useState<boolean>(false);
 
   useEffect(() => {
@@ -135,10 +138,14 @@ export default function Navbar({ bgColor = "transparent" }: NavbarProps) {
   }, []);
 
   return (
-    <div>
-      <nav className={`fixed top-0 left-0 z-[999] flex items-center justify-between w-full px-10 py-4 ${expanded ? "bg-black" : `bg-[${bgColor}]`}`}>
+    <div className="relative z-[99]">
+      <nav
+        className={`fixed top-0 left-0 flex items-center justify-between w-full px-10 py-2 ${
+          expanded ? "bg-black" : `bg-[${bgColor}]`
+        }`}
+      >
         <NavLink to="/">
-          <img src={logo} alt="Company Logo" className="h-14 w-fit"/>
+          <img src={logo} alt="Company Logo" className="h-14 w-fit" />
         </NavLink>
         <img
           src={icon}
@@ -163,12 +170,28 @@ export default function Navbar({ bgColor = "transparent" }: NavbarProps) {
             { path: "/", label: "Home" },
             { path: "/case-studies", label: "Case Studies" },
             { path: "/blogs", label: "Blogs" },
-            { path: "/contact-us", label: "Contact Us" }
-          ].map(({ path, label }) => (
-            <li key={path} className="hover:text-white text-gray-600 transition-all duration-300 cursor-pointer">
-              <NavLink to={path} className="text-4xl md:text-5xl lg:text-6xl">
-                {label}
-              </NavLink>
+            {
+              path: "/contact-us",
+              label: "Contact Us",
+              onClick: () => {
+                setExpanded(false);
+                if (contactModal) {
+                  contactModal();
+                }
+              },
+            },
+          ].map(({ path, label, onClick }) => (
+            <li
+              key={path}
+              className="hover:text-white text-gray-600 transition-all duration-300 cursor-pointer"
+            >
+              {onClick ? (
+                <button onClick={onClick}>{label}</button>
+              ) : (
+                <NavLink to={path} className="text-4xl md:text-5xl lg:text-6xl">
+                  {label}
+                </NavLink>
+              )}
             </li>
           ))}
         </ul>
